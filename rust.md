@@ -36,3 +36,16 @@ enumerate utilise le iter pour faire sur séquence index, valeur
 io:stdin().read_line([variable_de_recup]) -> recup input utilisateur
 
 &mut pour rendre une variable modifiable
+
+pour les tableaux on peut préciser le type et le nb d'éléments 
+let tab: [i32;4] = [1, 34, 123, 83 ]
+
+_ devant une variable pour éviter le warning variable non utilisée
+
+loop pour créer une boucle qui ne s'arrete qu'avec un break
+
+struct : structure de donnée personnalisée, on accède aux attributs par un "." struct.attribut
+
+switch : match avec _ pour le default
+
+impl : fonctions associées pour des struct
