@@ -33,13 +33,20 @@ fn executer_option(solde: f32, comptes: &[&str]) {
         executer_option(solde, comptes);
     } else {
         match choix {
-            1 => println!("| Le solde de votre compte est de {} €.", solde),
-            2 => println!("| Retrait effectué avec succès."),
+            1 => {
+                println!("| Le solde de votre compte est de {} €.", solde);
+                executer_option(solde, comptes);
+            },
+            2 => {
+                println!("| Retrait effectué avec succès.");
+                executer_option(solde, comptes);
+            },
             3 => {
                 println!("| Liste des comptes :");
                 for compte in comptes.iter() {
                     println!("| - {}", compte);
                 }
+                executer_option(solde, comptes);
             }
             4 => println!("| Au revoir !"),
             _ => unreachable!(),
