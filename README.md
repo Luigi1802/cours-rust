@@ -69,3 +69,39 @@ match x {
 
 ## Références
 - `&mut` : référence mutable
+
+# Lecture / écriture de fichiers & validation
+
+## Écriture dans un fichier
+- `File::create(path)` : crée ou écrase un fichier
+- `file.write_all(&bytes)` : écrit des bytes dans le fichier
+- erreurs gérées avec `Result`
+- exemple :
+  ```rust
+  use std::fs::File;
+  use std::io::Write;
+
+  let mut file = File::create("fichier.txt").expect("Impossible de créer le fichier");
+  file.write_all(b"Bonjour Rust !").expect("Erreur d'écriture");
+  ```
+
+## Validation avec `Result`
+- opérations IO retournent `Result<T, E>`
+- `Ok(valeur)` succès, `Err(erreur)` échec
+- gérer avec `.expect()`
+
+## Lecture dans un fichier
+- `File::open(path)` : ouvre fichier en lecture
+- `BufReader::new(file)` : tamponne la lecture
+- `reader.read_to_string(&mut contenu)` : lit tout dans une `String`
+- exemple :
+  ```rust
+  use std::fs::File;
+  use std::io::{BufReader, Read};
+
+  let file = File::open("fichier.txt").expect("Impossible d'ouvrir le fichier");
+  let mut reader = BufReader::new(file);
+  let mut contenu = String::new();
+  reader.read_to_string(&mut contenu).expect("Erreur de lecture");
+  println!("Contenu : {}", contenu);
+  ```
