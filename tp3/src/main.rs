@@ -1,5 +1,6 @@
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write};
+use chrono::Local;
 
 struct FileManager;
 
@@ -22,10 +23,12 @@ impl FileManager {
     fn write_to_file(path: &str, content: &str) {
         match OpenOptions::new().write(true).append(true).open(path) {
             Ok(mut file) => {
-                if let Err(e) = writeln!(file, "{}", content) {
+                let timestamp = Local::now().format("[%Y-%m-%d %H:%M:%S]").to_string();
+                let line = format!("{} {}\n", timestamp, content);
+                if let Err(e) = file.write_all(line.as_bytes()) {
                     println!("Erreur d'écriture : {}", e);
                 } else {
-                    println!("Texte ajouté à '{}'.", path);
+                    println!("Ligne ajoutée à '{}'.", path);
                 }
             }
             Err(e) => println!("Erreur à l'ouverture du fichier : {}", e),
@@ -35,10 +38,12 @@ impl FileManager {
     fn overwrite_file(path: &str, content: &str) {
         match File::create(path) {
             Ok(mut file) => {
-                if let Err(e) = file.write_all(content.as_bytes()) {
+                let timestamp = Local::now().format("[%Y-%m-%d %H:%M:%S]").to_string();
+                let line = format!("{} {}\n", timestamp, content);
+                if let Err(e) = file.write_all(line.as_bytes()) {
                     println!("Erreur d'écriture : {}", e);
                 } else {
-                    println!("Contenu de '{}' remplacé avec succès.", path);
+                    println!("Contenu de '{}' remplacé avec horodatage.", path);
                 }
             }
             Err(e) => println!("Erreur à l'ouverture du fichier : {}", e),
