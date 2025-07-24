@@ -105,3 +105,6 @@ match x {
   reader.read_to_string(&mut contenu).expect("Erreur de lecture");
   println!("Contenu : {}", contenu);
   ```
+
+
+  notion de ownership
