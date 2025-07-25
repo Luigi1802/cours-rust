@@ -3,7 +3,7 @@ use std::net::UdpSocket;
 
 pub fn run() -> std::io::Result<()> {
     let socket = UdpSocket::bind("0.0.0.0:0")?;
-    socket.connect("127.0.0.1:8053")?;
+    socket.connect("127.0.0.1:9000")?;
 
     loop {
         println!("Domaines disponibles : example.com, google.com, rust-lang.org");

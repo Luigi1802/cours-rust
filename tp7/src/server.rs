@@ -2,8 +2,8 @@ use std::net::UdpSocket;
 use std::collections::HashMap;
 
 pub fn run() -> std::io::Result<()> {
-    let socket = UdpSocket::bind("127.0.0.1:8053")?;
-    println!("Serveur DNS en écoute sur 127.0.0.1:8053");
+    let socket = UdpSocket::bind("127.0.0.1:9000")?;
+    println!("Serveur DNS en écoute sur 127.0.0.1:9000");
 
     let mut dns_db = HashMap::new();
     dns_db.insert("example.com", "93.184.216.34");
