@@ -1,4 +1,5 @@
-# Rust – Notes de cours (21/07 - 25/07)
+# Rust – Notes de cours 
+*Luigi AUBRY-POUGET M1 AL*
 
 ## Général
 - Langage système performant et sécurisé
@@ -168,3 +169,29 @@ async fn main() {
 [dependencies]
 tokio = { version = "1", features = ["full"] }
 ```
+
+## TP7 Fonctionnel
+
+```cargo run```
+
+![TP7 vue serveur](./screenshots/tp7_serveur.png)
+
+![TP7 vue client](./screenshots/tp7_client.png)
+
+## TP8 Fonctionnel
+
+```cargo run```
+
+![TP8 vue serveur](./screenshots/tp8_serveur.png)
+
+![TP8 vue client](./screenshots/tp8_client.png)
+
+## TP9 Fonctionnel
+
+```cargo run --bin server```
+
+```cargo run --bin client```
+
+![TP9 vue serveur](./screenshots/tp9_serveur.png)
+
+![TP9 vue client](./screenshots/tp9_client.png)
